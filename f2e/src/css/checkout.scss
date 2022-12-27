@@ -1,0 +1,44 @@
+@import 'overwrite.scss';
+
+.checkout {
+    .checkout-content {
+        max-width: 37.5em;
+    }
+    .pricing {
+        .pricing-detail {
+            visibility: hidden;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+        }
+        input[type='radio']:checked {
+            ~ .pricing-item {
+                background: $blue;
+                color: $white;
+                .icon-check {
+                    display: inline-block !important;
+                }
+            }
+            ~ .pricing-detail {
+                visibility: visible;
+                opacity: 1;
+                max-height: 1000px;
+                transition: max-height 0.5s cubic-bezier(0.52, 0.16, 0.24, 1);
+            }
+        }
+    }
+    .tpfield {
+        height: 40px;
+        width: 100%;
+        background: $white;
+        border: 1px solid rgba($black, 0.25);
+        border-radius: 0.25rem;
+        height: 3rem;
+        padding: 0rem 1rem;
+
+        &:focus {
+            background-color: transparent;
+            border-color: #30a7df;
+        }
+    }
+}

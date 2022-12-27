@@ -1,0 +1,79 @@
+<div class="row form">
+    <div class="col-6 mt-3">
+        <label>紀錄日期</label>
+        <input type="date" class="form-control" data-field="createdAt" value="{createdAt}" />
+    </div>
+    <div class="col-6 mt-3">
+        <label>老葉</label>
+        <input type="number" class="form-control" number data-field="oldLeaves" value="{oldLeaves}" />
+    </div>
+    <div class="col-6 mt-3">
+        <label>嫩葉</label>
+        <input type="number" class="form-control" number data-field="tenderLeaves" value="{tenderLeaves}" />
+    </div>
+    <div class="col-6 mt-3">
+        <label>葉芽</label>
+        <input type="number" class="form-control" number data-field="leavesBud" value="{leavesBud}" />
+    </div>
+    <div class="col-6 mt-3">
+        <label>花芽</label>
+        <input type="number" class="form-control" number data-field="flowerBud" value="{flowerBud}" />
+    </div>
+    <div class="col-6 mt-3">
+        <label>花</label>
+        <input type="number" class="form-control" number data-field="flower" value="{flower}" />
+    </div>
+    <div class="col-6 mt-3">
+        <label>果實</label>
+        <input type="number" class="form-control" number data-field="fruit" value="{fruit}" />
+    </div>
+    <div class="col-6 mt-3">
+        <label>走莖</label>
+        <input type="number" class="form-control" number data-field="stolon" value="{stolon}" />
+    </div>
+    <div class="col-6 mt-3">
+        <label>移盆</label>
+        <select class="form-control custom-select" number data-field="isRepotting" value="{isRepotting}">
+            <option value="0">否</option>
+            <option value="1">是</option>
+        </select>
+    </div>
+    <div class="col-6 mt-3">
+        <label>施肥</label>
+        <select class="form-control custom-select" number data-field="isFertilize" value="{isFertilize}">
+            <option value="0">否</option>
+            <option value="1">是</option>
+        </select>
+    </div>
+    <div class="col-6 mt-3">
+        <label>修枝</label>
+        <select class="form-control custom-select" number data-field="isPruning" value="{isPruning}">
+            <option value="0">否</option>
+            <option value="1">是</option>
+        </select>
+    </div>
+    <div class="col-6 mt-3">
+        <label>CurrentState</label>
+        <select class="form-control custom-select" data-field="currentState" value="{currentState}" multiple>
+            <option value="0">正常</option>
+            <option value="1">蟲害</option>
+            <option value="2">缺乏元素</option>
+            <option value="3">病害</option>
+            <option value="4">不明</option>
+            <option value="-1">死亡</option>
+        </select>
+    </div>
+
+    <div class="col-12 mt-3">
+        <label>其他描述</label>
+        <input type="text" class="form-control" data-field="comment" value="{comment}">
+    </div>
+
+    <div class="col-12 mt-5">
+        <button class="form-control" onclick="controller.save">Save</button>
+    </div>
+
+    <div class="col-12 mt-5">
+        <a class="form-control" href="/strawberries/{strawberryId}/">Back</a>
+    </div>
+</div

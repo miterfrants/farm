@@ -1,0 +1,69 @@
+.btn-primary {
+  background: white;
+  color: #163c9d;
+  outline: none;
+  border: none;
+  font-weight: 600; }
+  .btn-primary:hover {
+    background: #e9faff;
+    color: #0048ff; }
+  .btn-primary:active {
+    background: #d3f5ff;
+    color: #0048ff; }
+  .btn-primary:disabled {
+    background: #dcdff0;
+    opacity: 1;
+    color: rgba(0, 0, 0, 0.25); }
+  .btn-primary.btn-md {
+    font-size: 20px; }
+    @media (max-width: 991.98px) {
+      .btn-primary.btn-md {
+        font-size: 16px; } }
+
+.form-control {
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.25); }
+  .form-control:focus {
+    background-color: transparent;
+    border-color: #30a7df;
+    box-shadow: none; }
+  .form-control.invalid {
+    border-color: #ff4747; }
+  .form-control:disabled {
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.15); }
+    .form-control:disabled::placeholder {
+      color: rgba(255, 255, 255, 0.15); }
+
+.checkout .checkout-content {
+  max-width: 37.5em; }
+
+.checkout .pricing .pricing-detail {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden; }
+
+.checkout .pricing input[type='radio']:checked ~ .pricing-item {
+  background: #0048ff;
+  color: #fff; }
+  .checkout .pricing input[type='radio']:checked ~ .pricing-item .icon-check {
+    display: inline-block !important; }
+
+.checkout .pricing input[type='radio']:checked ~ .pricing-detail {
+  visibility: visible;
+  opacity: 1;
+  max-height: 1000px;
+  transition: max-height 0.5s cubic-bezier(0.52, 0.16, 0.24, 1); }
+
+.checkout .tpfield {
+  height: 40px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.25rem;
+  height: 3rem;
+  padding: 0rem 1rem; }
+  .checkout .tpfield:focus {
+    background-color: transparent;
+    border-color: #30a7df; }
