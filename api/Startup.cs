@@ -81,54 +81,6 @@ namespace Homo.FarmApi
                 });
             }
             CultureInfo currentCultureInfo = System.Threading.Thread.CurrentThread.CurrentCulture;
-            var certificate = new X509Certificate2("secrets/mqtt-server.pfx");
-            var ca = new X509Certificate2("secrets/chain.crt");
-
-            MQTTnet.Server.MqttServerOptions options = (new MqttServerOptionsBuilder())
-                .WithEncryptedEndpoint()
-                .WithEncryptedEndpointPort(8883)
-                .WithEncryptionCertificate(certificate)
-                .WithEncryptionSslProtocol(SslProtocols.Tls12)
-                .WithClientCertificate()
-                .Build();
-
-            options.TlsEndpointOptions.RemoteCertificateValidationCallback += (sender, cer, chain, sslPolicyErrors) =>
-                {
-                    System.Console.WriteLine($"TLS Policy Error: {Newtonsoft.Json.JsonConvert.SerializeObject(sslPolicyErrors, Newtonsoft.Json.Formatting.Indented)}");
-                    try
-                    {
-                        if (sslPolicyErrors == SslPolicyErrors.None)
-                        {
-                            return true;
-                        }
-
-                        if (sslPolicyErrors == SslPolicyErrors.RemoteCertificateChainErrors)
-                        {
-                            chain.ChainPolicy.RevocationMode = X509RevocationMode.NoCheck;
-                            chain.ChainPolicy.VerificationFlags = X509VerificationFlags.NoFlag;
-                            chain.ChainPolicy.ExtraStore.Add(ca);
-                            System.Console.WriteLine($"CA Fingerprint: {Newtonsoft.Json.JsonConvert.SerializeObject(ca.Thumbprint, Newtonsoft.Json.Formatting.Indented)}");
-                            chain.Build((X509Certificate2)cer);
-
-                            return chain.ChainElements.Cast<X509ChainElement>().Any(a =>
-                            {
-                                System.Console.WriteLine($"Chain Fingerprint: {Newtonsoft.Json.JsonConvert.SerializeObject(a.Certificate.Thumbprint, Newtonsoft.Json.Formatting.Indented)}");
-                                return a.Certificate.Thumbprint == ca.Thumbprint;
-                            });
-                        }
-                    }
-                    catch { }
-
-                    return false;
-                };
-
-
-            services
-                .AddMqttTcpServerAdapter()
-                .AddHostedMqttServer(options)
-                .AddMqttTcpServerAdapter()
-                .AddMqttConnectionHandler()
-                .AddConnections();
 
             services.AddSingleton<ErrorMessageLocalizer>(new ErrorMessageLocalizer(appSettings.Common.LocalizationResourcesPath));
             services.AddSingleton<CommonLocalizer>(new CommonLocalizer(appSettings.Common.LocalizationResourcesPath));
