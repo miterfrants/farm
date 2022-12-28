@@ -42,7 +42,7 @@ export class FormController extends RoutingController {
         elButton.removeAttribute('disabled');
         if(!isCreate && resp.status!=="OK") {
             Toaster.popup(Toaster.TYPE.ERROR, resp.data.message);
-        } else if(!isCreate && sresp.status === 'OK') {
+        } else if(!isCreate && resp.status === 'OK') {
             Toaster.popup(Toaster.TYPE.INFO, 'Updated');
         } else if(isCreate && resp.data.id) {
             history.pushState({},"",`/strawberries/${resp.data.strawberryId}/logs/${resp.data.id}/`);
