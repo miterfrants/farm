@@ -91,7 +91,21 @@ export const RoutingRule = [{
                         prepareData: [{
                             key: 'log',
                             func: async (args) => {
-                                return (await LogDataService.GetList(args._id, 1, 1)).data[0]
+                                const log = (await LogDataService.GetList(args._id, 1, 1)).data[0];
+                                return log || {
+                                    oldLeaves: 0,
+                                    tenderLeaves: 0,
+                                    leavesBud:0,
+                                    flowerBud: 0,
+                                    flower:0,
+                                    fruit: 0,
+                                    currentState: '[0]',
+                                    stolon: 0,
+                                    isRepotting: 0,
+                                    isFertilize: 0,
+                                    isPruning: 0,
+                                    comment:''
+                                }
                             }
                         }],
                     },{

@@ -16,7 +16,7 @@ export class FormController extends RoutingController {
 
     async postRender(){
         await super.postRender();
-        const currentState = JSON.parse(this.args.log.currentState);
+        const currentState = this.args.log ? JSON.parse(this.args.log.currentState) : [];
         this.elHTML.querySelectorAll('[data-field="currentState"]>option').forEach(item=> {
             if(currentState.indexOf(Number(item.value)) !== -1) {
                 item.selected = true;
@@ -45,7 +45,7 @@ export class FormController extends RoutingController {
         } else if(!isCreate && sresp.status === 'OK') {
             Toaster.popup(Toaster.TYPE.INFO, 'Updated');
         } else if(isCreate && resp.data.id) {
-            history.pushState({},"",`/strawberries/1/logs/${resp.data.id}/`);
+            history.pushState({},"",`/strawberries/${resp.data.strawberryId}/logs/${resp.data.id}/`);
         } else {
             Toaster.popup(Toaster.TYPE.ERROR, resp.data.message);
         }
