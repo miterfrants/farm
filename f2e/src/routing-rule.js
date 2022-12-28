@@ -1,7 +1,5 @@
 import { APP_CONFIG } from './config.js';
 import { FormController } from './controllers/form.controller.js';
-// TODO :「隱私權政策」內容寫完後，可以打開，並加上 RoutingRule 相關設定
-// import { AboutController } from './controllers/about.controller.js';
 import { MainController } from './controllers/main.controller.js';
 import { MasterController } from './controllers/master.controller.js';
 import { RootController } from './controllers/root.controller.js';
