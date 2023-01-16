@@ -1,9 +1,10 @@
 <div class="strawberry-list">
     <div class="child-router">
         <div class="container">
-            <div class="row" swim-for="strawberry in strawberries">
-                <div class="text-black col-4 col-sm-3 my-2">
-                    <a href="/strawberries/{id}/" class="d-block py-5 border-1 border rounded-3 text-center">
+            <h2 class="py-3">Strawberries</h2>
+            <div class="row " swim-for="strawberry in strawberries">
+                <div class="text-black col-2 col-sm-3 px-0 my-2">
+                    <a href="/strawberries/{id}/" class="d-block m-2 p-2 border-1 border rounded-3 text-center">
                         <span>{spec}</span> <span>{label}</span>
                     </a>
                 </div>

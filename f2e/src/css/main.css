@@ -21,11 +21,10 @@
         font-size: 16px; } }
 
 .form-control {
-  padding: 1rem 1.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.25); }
+  padding: 1rem;
+  border: 2px solid rgba(0, 0, 0, 0.25); }
   .form-control:focus {
-    background-color: transparent;
-    border-color: #30a7df;
+    border-color: #14ffca;
     box-shadow: none; }
   .form-control.invalid {
     border-color: #ff4747; }

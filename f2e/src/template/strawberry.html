@@ -1,29 +1,34 @@
 <div class="strawberry">
     <div class="container">
         <div class="row">
-            <h1 class="col-12 text-center my-3">
+            <h3 class="col-12 text-center my-2">
                 <span>{spec}</span>
                 <span>{label}</span>
-            </h1>
+            </h3>
         </div>
     </div>
     <div class="child-router container">
-        <div class="row">
-            <div class="col-6">
-                <a href="/strawberries/{strawberryId}/logs/create/" class="d-block form-control">Create Log</a>
-            </div>
-            <div class="col-6">
-                <a class="form-control" href="/strawberries/">Back To List</a>
+        <div class="position-fixed w-100 bottom-0 mb-3">
+            <div class="container m-0 p-0 pe-4">
+                <div class="row">
+                    <div class="col-6">
+                        <a href="/strawberries/{strawberryId}/logs/create/"
+                            class="d-block py-3 btn btn-primary-700">Create
+                            Log</a>
+                    </div>
+                    <div class="col-6">
+                        <a class="d-block py-3 btn btn-grey-400" href="/strawberries/">Back To List</a>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <hr class="mt-5" />
     </div>
 
-    <div class="container mt-5">
+    <div class="container mt-5 pb-6">
+        <h3 class="py-2">History Record</h3>
         <div class="row my-2" swim-for="log in logs">
-            <div class="col-4 col-sm-3 ">
-                <a class="d-block py-5 border-1 border rounded-3 text-center"
+            <div class="col-4 col-sm-3 my-2">
+                <a class="d-block py-2 border-1 border rounded-3 text-center"
                     href="/strawberries/{strawberryId}/logs/{id}/">
                     {createdAt}
                 </a>
