@@ -3,57 +3,69 @@
         <label>紀錄日期</label>
         <input type="date" class="form-control" data-field="createdAt" value="{createdAt}" />
     </div>
-    <div class="col-6 mt-3">
-        <label>老葉</label>
-        <input type="number" class="form-control" number data-field="oldLeaves" value="{oldLeaves}" />
+    <div class="col-12 m-0 p-0 row">
+        <div class="col-6 m-0 row">
+            <h4 class="col-12 py-2 mt-3">葉況</h4>
+            <hr />
+            <div class="col-4 mt-3">
+                <label>葉芽</label>
+                <input type="number" class="form-control" number data-field="leavesBud" value="{leavesBud}" />
+            </div>
+            <div class="col-4 mt-3">
+                <label>嫩葉</label>
+                <input type="number" class="form-control" number data-field="tenderLeaves" value="{tenderLeaves}" />
+            </div>
+            <div class="col-4 mt-3">
+                <label>老葉</label>
+                <input type="number" class="form-control" number data-field="oldLeaves" value="{oldLeaves}" />
+            </div>
+        </div>
+        <div class="col-6 m-0 row">
+            <h4 class="col-12 py-2 mt-3">花況</h4>
+            <hr />
+            <div class="col-4 mt-3">
+                <label>花芽</label>
+                <input type="number" class="form-control" number data-field="flowerBud" value="{flowerBud}" />
+            </div>
+            <div class="col-4 mt-3">
+                <label>花</label>
+                <input type="number" class="form-control" number data-field="flower" value="{flower}" />
+            </div>
+            <div class="col-4 mt-3">
+                <label>果實</label>
+                <input type="number" class="form-control" number data-field="fruit" value="{fruit}" />
+            </div>
+        </div>
     </div>
-    <div class="col-6 mt-3">
-        <label>嫩葉</label>
-        <input type="number" class="form-control" number data-field="tenderLeaves" value="{tenderLeaves}" />
-    </div>
-    <div class="col-6 mt-3">
-        <label>葉芽</label>
-        <input type="number" class="form-control" number data-field="leavesBud" value="{leavesBud}" />
-    </div>
-    <div class="col-6 mt-3">
-        <label>花芽</label>
-        <input type="number" class="form-control" number data-field="flowerBud" value="{flowerBud}" />
-    </div>
-    <div class="col-6 mt-3">
-        <label>花</label>
-        <input type="number" class="form-control" number data-field="flower" value="{flower}" />
-    </div>
-    <div class="col-6 mt-3">
-        <label>果實</label>
-        <input type="number" class="form-control" number data-field="fruit" value="{fruit}" />
-    </div>
-    <div class="col-6 mt-3">
+    <h4 class="col-12 py-2 mt-3">其他</h4>
+    <hr />
+    <div class="col-2 mt-3">
         <label>走莖</label>
         <input type="number" class="form-control" number data-field="stolon" value="{stolon}" />
     </div>
-    <div class="col-6 mt-3">
+    <div class="col-2 mt-3">
         <label>移盆</label>
         <select class="form-control custom-select" number data-field="isRepotting" value="{isRepotting}">
             <option value="0">否</option>
             <option value="1">是</option>
         </select>
     </div>
-    <div class="col-6 mt-3">
+    <div class="col-2 mt-3">
         <label>施肥</label>
         <select class="form-control custom-select" number data-field="isFertilize" value="{isFertilize}">
             <option value="0">否</option>
             <option value="1">是</option>
         </select>
     </div>
-    <div class="col-6 mt-3">
+    <div class="col-2 mt-3">
         <label>修枝</label>
         <select class="form-control custom-select" number data-field="isPruning" value="{isPruning}">
             <option value="0">否</option>
             <option value="1">是</option>
         </select>
     </div>
-    <div class="col-6 mt-3">
-        <label>CurrentState</label>
+    <div class="col-4 mt-3">
+        <label>狀態</label>
         <select class="form-control custom-select" data-field="currentState" value="{currentState}" multiple>
             <option value="0">正常</option>
             <option value="1">蟲害</option>
@@ -68,12 +80,17 @@
         <label>其他描述</label>
         <input type="text" class="form-control" data-field="comment" value="{comment}">
     </div>
-
-    <div class="col-12 mt-5">
-        <button class="form-control" onclick="controller.save">Save</button>
-    </div>
-
-    <div class="col-12 mt-5">
-        <a class="form-control" href="/strawberries/{strawberryId}/">Back</a>
+    <div class="w-100 position-fixed bottom-0 mb-3">
+        <div class="container m-0 p-0 pe-4">
+            <div class="row">
+                <div class="col-6">
+                    <button class="w-100 py-3 btn btn-primary-700" onclick="controller.save">Save</button>
+                </div>
+                <div class="col-6 d-flex">
+                    <a class="w-100 py-3 btn btn-grey-400" href="/strawberries/{strawberryId}/">Back</a>
+                    <a class="w-100 py-3 btn btn-grey-400 ms-3" href="/strawberries/">Back To List</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div

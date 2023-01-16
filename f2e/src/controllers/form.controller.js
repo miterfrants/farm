@@ -7,10 +7,12 @@ import { Toaster } from '../util/toaster.js';
 export class FormController extends RoutingController {
     async render () {
         const isCreate = location.pathname.endsWith('create/');
-        const now = new Date();
         await super.render({
             ...this.args.log,
-            createdAt: isCreate ? `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`  :this.args.log.createdAt.split('T')[0]
+            isRepotting: isCreate? 0 : this.args.log.isRepotting,
+            isFertilize: isCreate ? 0 : this.args.log.isFertilize,
+            isPruning: isCreate? 0 : this.args.log.isPruning,
+            createdAt: isCreate ? moment().format('YYYY-MM-DD')  :this.args.log.createdAt.split('T')[0]
         });
     }
 
@@ -45,6 +47,7 @@ export class FormController extends RoutingController {
         } else if(!isCreate && resp.status === 'OK') {
             Toaster.popup(Toaster.TYPE.INFO, 'Updated');
         } else if(isCreate && resp.data.id) {
+            Toaster.popup(Toaster.TYPE.INFO, 'Created');
             history.pushState({},"",`/strawberries/${resp.data.strawberryId}/logs/${resp.data.id}/`);
         } else {
             Toaster.popup(Toaster.TYPE.ERROR, resp.data.message);
