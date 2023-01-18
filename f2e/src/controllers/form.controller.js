@@ -12,7 +12,8 @@ export class FormController extends RoutingController {
             isRepotting: isCreate? 0 : this.args.log.isRepotting,
             isFertilize: isCreate ? 0 : this.args.log.isFertilize,
             isPruning: isCreate? 0 : this.args.log.isPruning,
-            createdAt: isCreate ? moment().format('YYYY-MM-DD')  :this.args.log.createdAt.split('T')[0]
+            createdAt: isCreate ? moment().format('YYYY-MM-DD')  :this.args.log.createdAt.split('T')[0],
+            comment: isCreate ? '' : this.args.log.comment
         });
     }
 

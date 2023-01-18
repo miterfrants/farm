@@ -44,7 +44,8 @@ $opacity: (
     0: 0,
 );
 
-$primary: #6bdcff; // deprecated
+$primary: #3b7e50; // deprecated
+$dark-primary: #0e5926;
 $light-blue: #4ac5ff; // deprecated
 $deep-dark-blue: #0c152d; // deprecated
 $dark-blue: #141b5e; // deprecated
@@ -64,6 +65,8 @@ $primary-300: #9de8ff;
 $primary-200: #d3f5ff;
 $primary-100: #e9faff;
 $green: #14ffca;
+$light-green: #a6d6c5;
+$dark-green: #0e5135;
 $success: #2ebf2e;
 $warn: #f39c06;
 
@@ -76,6 +79,8 @@ $grey-300: #8a90ad;
 $grey-200: #dcdff0;
 $grey-100: #f8f9fa;
 
+$grey-green: #92c6ac;
+
 $bg-blue2green: linear-gradient(135deg, #0048ff 0%, #14ffca 100%);
 $enable-negative-margins: true;
 
@@ -83,6 +88,7 @@ $theme-colors: (
     "black": black,
     "white": white,
     "primary": $primary,
+    "dark-primary": $dark-primary,
     "light-blue": $light-blue,
     "dark-blue": $dark-blue,
     "dark": $dark,
@@ -111,7 +117,10 @@ $theme-colors: (
     "grey-800": $grey-800,
     "purple": $purple,
     "green": $green,
+    "light-green": $light-green,
+    "dark-green": $dark-green,
     "warn": $warn,
+    "grey-green": $grey-green,
 );
 
 @import "bootstrap/scss/_utilities.scss";
@@ -144,24 +153,21 @@ $utilities: map-merge(
 );
 
 .btn-primary {
-    background: white;
-    color: $primary-800;
+    background: $primary;
+    color: $white;
     outline: none;
     border: none;
     font-weight: 600;
 
     &:hover {
-        background: $primary-100;
-        color: $blue;
+        color: $white;
     }
 
     &:active {
-        background: $primary-200;
-        color: $blue;
+        color: $white;
     }
 
     &:disabled {
-        background: $grey-200;
         opacity: 1;
         color: rgba($black, 0.25);
     }

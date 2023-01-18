@@ -22,7 +22,7 @@ export const Toaster = {
             document.body.appendChild(elToaster);
         }
 
-        const toasterItem = new ToasterMessage(elToaster, className, message, duration || 5000, link);
+        const toasterItem = new ToasterMessage(elToaster, className, message, duration || 1500, link);
         toasterItem.show();
     }
 };

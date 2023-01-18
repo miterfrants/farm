@@ -1,11 +1,17 @@
 <div class="strawberry-list">
     <div class="child-router">
         <div class="container">
-            <h2 class="py-3">Strawberries</h2>
+            <h2 class="py-3 text-dark-primary">Strawberries</h2>
             <div class="row " swim-for="strawberry in strawberries">
                 <div class="text-black col-2 col-sm-3 px-0 my-2">
-                    <a href="/strawberries/{id}/" class="d-block m-2 p-2 border-1 border rounded-3 text-center">
-                        <span>{spec}</span> <span>{label}</span>
+                    <a href="/strawberries/{id}/"
+                        class="d-block m-2 p-3 border-1 border rounded-3 text-center btn btn-primary border-0 position-relative {isDeathStyle}">
+                        <div class="position-absolute ms-2 start-0 top-0 d-flex justify-content-end">
+                            <span class="text-danger bg-white p-1 {isDeath} me-1">亡</span>
+                            <span class="text-danger bg-white p-1 {isSick} me-1">病</span>
+                        </div>
+                        <div>{spec}</div>
+                        <div>{label}</div>
                     </a>
                 </div>
             </div>

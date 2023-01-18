@@ -22,15 +22,29 @@ namespace Homo.FarmApi
             return record;
         }
 
-        public static List<Strawberry> GetAll(FarmDbContext dbContext, DTOs.StrawberryQuery dto)
+        public static List<ViewRelationOfStrawberryAndLog> GetAll(FarmDbContext dbContext, DTOs.StrawberryQuery dto)
         {
-            return dbContext.Strawberry.Where(x =>
+            List<Strawberry> list = dbContext.Strawberry
+            .Where(x =>
                     (dto.Label == null || x.Label.Contains(dto.Label))
-                    && (dto.Spec == null || x.Spec.Contains(dto.Spec))
-                ).ToList();
-        }
+                    && (dto.Spec == null || x.Spec.Contains(dto.Spec)))
+            .ToList();
 
-        [Route("{id}")]
+            List<StrawberryLog> lastLogs = StrawberryLogDataservice.GetLast(dbContext, list.Select(x => x.Id).ToList<long>());
+
+            return list.Select(x =>
+                new ViewRelationOfStrawberryAndLog
+                {
+                    Id = x.Id,
+                    CreatedAt = x.CreatedAt,
+                    Label = x.Label,
+                    Spec = x.Spec,
+                    InitialState = x.InitialState,
+                    Situation = x.Situation,
+                    BornFrom = x.BornFrom,
+                    CurrentState = lastLogs.Where(item => item.StrawberryId == x.Id).FirstOrDefault()?.CurrentState
+                }).ToList();
+        }
 
         public static Strawberry GetOne(FarmDbContext dbContext, [FromRoute] long id)
         {
@@ -38,5 +52,19 @@ namespace Homo.FarmApi
                     x.Id == id
                 ).FirstOrDefault();
         }
+
     }
+
+    public class ViewRelationOfStrawberryAndLog
+    {
+        public long Id { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public string Label { get; set; }
+        public string Spec { get; set; }
+        public string InitialState { get; set; }
+        public string Situation { get; set; }
+        public BORN_FORM BornFrom { get; set; }
+        public string CurrentState { get; set; }
+    }
+
 }

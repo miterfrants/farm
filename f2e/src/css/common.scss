@@ -63,8 +63,8 @@ h5,
 /* Toaster */
 .toaster {
     position: fixed;
-    top: 20px;
-    right: 100px;
+    top: 5px;
+    right: 10px;
     z-index: 10000;
     padding-bottom: 20px;
     @include media-breakpoint-down(md) {
@@ -81,15 +81,14 @@ h5,
     opacity: 1;
     background: #2c2c2c;
     color: white !important;
-    width: 400px;
+    width: 300px;
     padding: 15px 20px;
     border-radius: 10px;
     opacity: 0;
     transition: opacity 0.3s;
     margin-top: 10px;
     position: relative;
-    padding-left: 36px;
-    padding-top: 55px;
+    padding-left: 100px;
     border: 1px solid #2c2c2c;
 
     @include media-breakpoint-down(sm) {
@@ -169,6 +168,10 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+.z-index-1 {
+    z-index: 1;
 }
 
 /* purgecss end ignore */
