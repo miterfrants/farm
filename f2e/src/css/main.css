@@ -1,17 +1,14 @@
 .btn-primary {
-  background: white;
-  color: #163c9d;
+  background: #3b7e50;
+  color: #fff;
   outline: none;
   border: none;
   font-weight: 600; }
   .btn-primary:hover {
-    background: #e9faff;
-    color: #0048ff; }
+    color: #fff; }
   .btn-primary:active {
-    background: #d3f5ff;
-    color: #0048ff; }
+    color: #fff; }
   .btn-primary:disabled {
-    background: #dcdff0;
     opacity: 1;
     color: rgba(0, 0, 0, 0.25); }
   .btn-primary.btn-md {

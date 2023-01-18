@@ -1,19 +1,19 @@
 <div class="strawberry">
     <div class="container">
         <div class="row">
-            <h3 class="col-12 text-center my-2">
+            <h3 class="col-12 text-center text-dark-primary my-2">
                 <span>{spec}</span>
                 <span>{label}</span>
             </h3>
         </div>
     </div>
-    <div class="child-router container">
+    <div class="child-router container position-relative z-index-1">
         <div class="position-fixed w-100 bottom-0 mb-3">
             <div class="container m-0 p-0 pe-4">
                 <div class="row">
                     <div class="col-6">
                         <a href="/strawberries/{strawberryId}/logs/create/"
-                            class="d-block py-3 btn btn-primary-700">Create
+                            class="d-block py-3 btn btn-dark-primary">Create
                             Log</a>
                     </div>
                     <div class="col-6">
@@ -24,12 +24,27 @@
         </div>
     </div>
 
-    <div class="container mt-5 pb-6">
-        <h3 class="py-2">History Record</h3>
+    <div class="container mt-4 pb-6">
+        <h3 class="py-2 text-dark-primary d-flex align-items-center">
+            <div>History Record</div>
+            <div class="ps-2 fs-6 {hasFertilizeDate}"> - 距離上次施肥已有 {fertilizeDay} 天</div>
+        </h3>
+        <hr class="text-grey-400" />
         <div class="row my-2" swim-for="log in logs">
             <div class="col-4 col-sm-3 my-2">
-                <a class="d-block py-2 border-1 border rounded-3 text-center"
+                <a class="d-block p-4 rounded-3 text-center btn btn-primary position-relative"
                     href="/strawberries/{strawberryId}/logs/{id}/">
+                    <div class="position-absolute ms-2 start-0 top-0 d-flex justify-content-end">
+                        <div class="text-danger bg-white p-1 {isDeath} me-1">
+                            亡
+                        </div>
+                        <div class="text-danger bg-white p-1 {isSick} me-1">
+                            病
+                        </div>
+                        <div class="text-dark-primary bg-white p-1 {isFertilize} me-1">
+                            肥
+                        </div>
+                    </div>
                     {createdAt}
                 </a>
             </div>

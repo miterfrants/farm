@@ -32,6 +32,19 @@ namespace Homo.FarmApi
                 ).OrderByDescending(x => x.CreatedAt).Skip((page - 1) * limit).Take(limit).ToList();
         }
 
+        public static List<StrawberryLog> GetLast(FarmDbContext dbContext, List<long> strawberryId)
+        {
+            return dbContext.StrawberryLog.Where(x =>
+                strawberryId.Contains(x.StrawberryId)
+            ).OrderBy(x => x.StrawberryId)
+            .ThenByDescending(x => x.CreatedAt)
+            .ThenBy(x => x.Id)
+            .ToList()
+            .GroupBy(x => x.StrawberryId)
+            .Select(x => x.First())
+            .ToList();
+        }
+
 
         public static StrawberryLog GetOne(FarmDbContext dbContext, long id)
         {
