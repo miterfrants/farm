@@ -26,6 +26,8 @@ namespace Homo.FarmApi
         [Description("缺微量元素")]
         TRACE_ELEMENT_DEFICIENCY = 9,
         [Description("肥傷")]
-        FERTILIZER_DAMAGE = 10
+        FERTILIZER_DAMAGE = 10,
+        [Description("正常")]
+        FERTILIZER_DAMAGE = 9999
     }
 }
