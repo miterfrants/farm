@@ -6,8 +6,9 @@ import { RootController } from './controllers/root.controller.js';
 import { StrawberryListController } from './controllers/strawberry-list.controller.js';
 import { StrawberryController } from './controllers/strawberry.controller.js';
 import { StrawberryDataService } from './dataservices/strawberry.dataservice.js';
-import { Toaster } from './util/toaster.js';
 import { LogDataService } from './dataservices/log.dataservice.js';
+import { MlRawController } from './controllers/ml-raw.controller.js';
+import { UniversalDataService } from './dataservices/universal.dataservice.js';
 
 const gTag = {
     dependency: {
@@ -54,6 +55,17 @@ export const RoutingRule = [{
             html: '/template/main.html',
             prepareData: [gTag.prepareData],
             children: [{
+                path: 'upload/',
+                controller: MlRawController,
+                html:'/template/ml-raw.html',
+                prepareData: [{
+                    key: 'diseases',
+                    func: async () => {
+                        const result = await UniversalDataService.GetDiseases();
+                        return result.data;
+                    }
+                }],
+            },{
                 path: 'strawberries/',
                 controller: StrawberryListController,
                 html: '/template/strawberry-list.html',

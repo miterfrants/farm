@@ -17,6 +17,7 @@ namespace Homo.FarmApi
 
         public virtual DbSet<Strawberry> Strawberry { get; set; }
         public virtual DbSet<StrawberryLog> StrawberryLog { get; set; }
+        public virtual DbSet<StrawberryMachineLearningRaw> StrawberryMachineLearningRaw { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -42,6 +43,12 @@ namespace Homo.FarmApi
                 entity.HasIndex(p => new { p.StrawberryId });
                 entity.HasIndex(p => new { p.Stolon });
 
+            });
+
+            modelBuilder.Entity<StrawberryMachineLearningRaw>(entity =>
+            {
+                entity.HasIndex(p => new { p.CreatedAt });
+                entity.HasIndex(p => new { p.Disease });
             });
 
             OnModelCreatingPartial(modelBuilder);

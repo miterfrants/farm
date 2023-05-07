@@ -34,5 +34,11 @@ export const UniversalDataService = {
         return ApiHelper.sendRequest(api, {
             method: 'GET'
         });
+    },
+    GetDiseases: async () => {
+        const api = APP_CONFIG.API_ENDPOINT + API.DISEASES;
+        return ApiHelper.sendRequest(api, {
+            method: 'GET'
+        });
     }
 };

@@ -14,5 +14,8 @@ export const API = {
     STRAWBERRY: 'strawberries/{id}',
     STRAWBERRY_LOGS: 'strawberries/{strawberryId}/logs',
     STRAWBERRY_LOG: 'strawberries/{strawberryId}/logs/{id}',
+    DISEASES: 'universal/diseases',
+    ML: 'ml',
+    FILES: 'files'
 };
 

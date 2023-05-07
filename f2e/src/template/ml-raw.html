@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row form">
+        <div class="col-12 m-0 p-0 ">
+            <input class="d-block w-25" type="file" onchange="controller.uploadFile" />
+            {fileName}
+        </div>
+
+        <div class="mt-4 col-12" swim-for="disease in diseases">
+            <label class="d-block px-3">
+                <input onchange="controller.updateState" type="radio" name="diseases" value="{value}" />
+                <span class="mx-2">{label}</span>
+            </label>
+        </div>
+
+        <div class="col-12 mt-4">
+            <button {buttonDisabled} onclick="controller.createRaw">送出</button>
+        </div>
+    </div>
+</div>
