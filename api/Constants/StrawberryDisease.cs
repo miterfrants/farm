@@ -28,6 +28,6 @@ namespace Homo.FarmApi
         [Description("肥傷")]
         FERTILIZER_DAMAGE = 10,
         [Description("正常")]
-        FERTILIZER_DAMAGE = 9999
+        NORMAL = 9999
     }
 }
